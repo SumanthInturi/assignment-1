@@ -5,121 +5,92 @@ body{
     justify-content: center;
     align-items: center;
     background-color: aqua;
-
 }
 *{
     box-sizing: border-box;
 }
 [tooltip-position="top"],[tooltip-position="right"],[tooltip-position="bottom"],[tooltip-position="left"]{
     display: inline-block;
-    font-size: 30px;
     background-color: blue;
     padding: 5px;
-    margin: 30px;
+    margin: 50px;
     border-radius: 8px;
     position: relative;
 }
-[tooltip-position="top"]::after{
-    content: "";
-    border: 10px solid transparent;
-    border-top-color: red;
+[tooltip-position="top"]::after,[tooltip-position="right"]::after,[tooltip-position="bottom"]::after,[tooltip-position="left"]::after{
     position: absolute;
-    transform: translateX(-100%) translateY(-50%) scale(0); 
-}
-[tooltip-position="top"]:hover::after{
-    transform: translateX(-100%) translateY(-60%) scale(1);
-}
-[tooltip-position="top"]::before{
     content: attr(tooltip);
-    border-radius: 4px;
-    padding: 7px;
-    position: absolute;
-    background-color: red;
+    background-color: black;
+    border-radius: 8px;
+    padding: 8px;
     width: max-content;
     color: white;
-    left:50%;
-    transform: translateX(-50%) translateY(calc(-100% - 10px)) scale(0);
+    transform: scale(0);
+}
+[tooltip-position="top"]::before,[tooltip-position="right"]::before,[tooltip-position="bottom"]::before,[tooltip-position="left"]::before{
+    content: "";
+    position: absolute;
+    top:calc(50% - 10px);
+    border: 10px solid transparent;
+    transform: scale(0);
+}
+[tooltip-position="top"]::before{
+    border-top-color: black;
+    top:-10px;
+    left: calc(50% - 10px);
 }
 [tooltip-position="top"]:hover::before{
-    transform: translateX(-50%) translateY(calc(-100% - 10px)) scale(1);
+    transform: scale(1) ;
+}
+[tooltip-position="top"]::after{
+    left: 50%;
+}
+[tooltip-position="top"]:hover::after{
+    transform: translateY(calc(-100% - 10px)) translateX(calc(-50%));
+}
+[tooltip-position="right"]::before{
+    border-right-color: black;
+    left: calc(100% - 10px);
+}
+[tooltip-position="right"]:hover::before{
+    transform: scale(1);
 }
 [tooltip-position="right"]::after{
-    content: "";
-    border: 10px solid transparent;
-    border-right-color: red;
-    position: absolute;
-    left: calc(100% - 10px);
-    transform: scale(0);
+    left: calc(100% + 10px);
+    top:-3px;
     z-index: 2;
 }
 [tooltip-position="right"]:hover::after{
-    transform: scale(1);
-}
-[tooltip-position="right"]::before{
-    content: attr(tooltip);
-    border-radius: 4px;
-    padding: 7px;
-    position: absolute;
-    background-color: red;
-    left: calc(100% + 10px);
-    transform: translateY(-25%) scale(0);
-    width: max-content;
-    color: white;
-    z-index: 2;
-}
-[tooltip-position="right"]:hover::before{
-    transform: translateY(-25%) scale(1);
-}
-[tooltip-position="bottom"]::after{
-    content: "";
-    border: 10px solid transparent;
-    border-bottom-color: red;
-    position: absolute;
-    left: calc(50% - 10px);
-    transform: translateY(calc(100% + 10px)) scale(1);
-
-}
-[tooltip-position="bottom"]:hover::after{
-    transform: translateY(100% - 10px) scale(1);
+    transform:  scale(1) ;
 }
 [tooltip-position="bottom"]::before{
-    content: attr(tooltip);
-    border-radius: 4px;
-    padding: 7px;
-    position: absolute;
-    background-color: red;
-    width: max-content;
-    color: white;
-    left:50%;
-    transform: translateX(-50%) translateY(100%) scale(0);
+    border-bottom-color: black;
+    left: calc(50% - 10px);
+    bottom: -10px;
+    transform: scale(0);
 }
 [tooltip-position="bottom"]:hover::before{
-    transform: translateX(-50%) translateY(100%) scale(1);
+    transform: scale(1) ;
 }
-[tooltip-position="left"]::after{
-    content: "";
-    border: 10px solid transparent;
-    border-left-color: red;
-    position: absolute;
+[tooltip-position="bottom"]::after{
+    left: 50%;
+    top: -3px;
     transform: scale(0);
-
 }
-[tooltip-position="left"]:hover::after{
-    transform: translateX(-225%) scale(1);
+[tooltip-position="bottom"]:hover::after{
+    transform: scale(1) translateX(-50%) translateY(calc(100% + 3px));
 }
 [tooltip-position="left"]::before{
-    content: attr(tooltip);
-    border-radius: 4px;
-    padding: 7px;
-    position: absolute;
-    background-color: red;
-    transform:  scale(1);
-    width: max-content;
-    color: white;
-    right: 0%;
-    transform: translateX(-50%) translateY(-25%) scale(0);
+    border-left-color: black;
+    left: -10px;
 }
 [tooltip-position="left"]:hover::before{
-    /* transform: translateY(25%) scale(1); */
-    transform: translateX(-50%) translateY(-25%) scale(1)
+    transform: scale(1);
+}
+[tooltip-position="left"]::after{
+    right: calc(100% + 10px);
+    top: -3px;
+}
+[tooltip-position="left"]:hover::after{
+    transform: scale(1);
 }
