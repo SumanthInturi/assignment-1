@@ -1,7 +1,7 @@
 body{
     display: flex;
     height: 100vh;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: aqua;
@@ -12,6 +12,7 @@ body{
 [tooltip-position="top"],[tooltip-position="right"],[tooltip-position="bottom"],[tooltip-position="left"]{
     display: inline-block;
     background-color: blue;
+    color: red;
     padding: 5px;
     margin: 50px;
     border-radius: 8px;
@@ -71,7 +72,6 @@ body{
     left: calc(100% + 10px);
     top:50%;
     z-index: 2;
-    transform:  translateY(-50%) scale(0) ;
     transition: 3s transform;
     transform-origin: left center;
     transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -94,7 +94,6 @@ body{
 [tooltip-position="bottom"]::after{
     left: 50%;
     top: 100%;
-    transform: scale(0);
     transition: 3s transform;
     transform-origin: bottom center;
     transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);    
@@ -115,7 +114,6 @@ body{
 [tooltip-position="left"]::after{
     right: calc(100% + 10px);
     top: 50%;
-    transform: scale(0) translateY(-50%);
     transition: 3s transform;
     transform-origin: right center;
     transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);    
