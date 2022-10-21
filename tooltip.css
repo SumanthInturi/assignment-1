@@ -4,14 +4,14 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: aqua;
+    background-color:#CFFF8D;
 }
 *{
     box-sizing: border-box;
 }
 [tooltip-position="top"],[tooltip-position="right"],[tooltip-position="bottom"],[tooltip-position="left"]{
     display: inline-block;
-    background-color: blue;
+    background-color: lightblue;
     color: red;
     padding: 5px;
     margin: 50px;
